@@ -1,0 +1,14 @@
+wandb/
+model_answers/
+model_answers_old/
+additional_results/
+figs/
+figs_1/
+__pycache__/
+
+bash_scripts/draw_results.py
+bash_scripts/draw_results_plain(1).py
+src/analysis/case_analysis.py
+call_LM.py
+*/*/*legacy*
+work.sh

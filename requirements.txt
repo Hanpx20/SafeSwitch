@@ -1,0 +1,9 @@
+torch
+transformers
+datasets
+vllm
+shortuuid
+scikit-learn
+openai
+termcolor
+numpy
