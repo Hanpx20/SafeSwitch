@@ -1,10 +1,9 @@
 export CUDA_VISIBLE_DEVICES=5
-export LLM_DIR=/shared/nas2/shared/llms
-export CLASSIFIER_DIR=/shared/nas2/ph16/toxic/outputs/classifier
-export REFUSAL_HEAD_DIR=/shared/nas2/ph16/toxic/finetuned_LM_head
+export LLM_DIR=""
+export CLASSIFIER_DIR=""
+export REFUSAL_HEAD_DIR=""
+export OPENAI_API_KEY=""
 export TRANSFORMERS_VERBOSITY="error"
-export OPENAI_API_KEY="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"
-
 gpu_count=$(echo $CUDA_VISIBLE_DEVICES | tr ',' '\n' | wc -l)
 
 set -e

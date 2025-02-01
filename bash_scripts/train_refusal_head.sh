@@ -1,6 +1,6 @@
 export CUDA_VISIBLE_DEVICES=5
-export LLM_DIR=/shared/nas2/shared/llms
-export OUTPUT_DIR=/shared/nas2/ph16/toxic/finetuned_LM_head
+export LLM_DIR=""
+export OUTPUT_DIR=""
 export TRANSFORMERS_VERBOSITY="error"
 gpu_count=$(echo $CUDA_VISIBLE_DEVICES | tr ',' '\n' | wc -l)
 

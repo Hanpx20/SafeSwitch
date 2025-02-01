@@ -1,6 +1,6 @@
 export CUDA_VISIBLE_DEVICES=2
-export LLM_DIR=/shared/nas2/shared/llms
-export DATA_DIR=/shared/nas2/ph16/toxic/outputs
+export LLM_DIR=""
+export DATA_DIR=""
 export TRANSFORMERS_VERBOSITY="error"
 
 
