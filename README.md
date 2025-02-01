@@ -4,11 +4,16 @@ SafeSwitch: Internal Activation as the Polar Star for Steering Unsafe LLM Behavi
 </h1>
 </div>
 
+<div align="center">
+<h3>
+Peixuan Han, Cheng Qian, Xiusi Chen, Yuji Zhang,Denghui Zhang, Heng Ji
+</h3>
+</div>
+
+
 <p align="center">
-<a href="111" target="_blank">Paper</a> • <a href="111" target="_blank">Models</a>
+<a href="111" target="_blank">Paper</a> • <a href="https://huggingface.co/HakHan/SafeSwitch" target="_blank">Models</a>
 </p>
-
-
 
 
 ## About SafeSwitch
@@ -43,20 +48,24 @@ We train a safety prober to extract information from internal states and predict
 
 Set the `model_list` parameter in `bash_scripts/train_prober_pipeline.sh` and run the script to train and evaluate safety probers.
 
+You can directly use our trained probers from [this repo](https://huggingface.co/HakHan/SafeSwitch).
+
 
 ### Step 2: Train the Refusal Head
 
 Set the `model_list` parameter in `bash_scripts/train_refusal_head.sh` and run the script to train the refusal head. The output directory should contain the whole LM model (where only the LM head is different from the original model) as well as a copy for the refusal head alone.
+
+You can directly use our trained refusal heads from [this repo](https://huggingface.co/HakHan/SafeSwitch). You need to run `src/convert_head.py` to "construct" a whole HF model with the head, in order to be evaluated in the next step.
 
 ### Step 3: Evaluating SafeSwitch
 After training the prober and the refusal head, our code automatically performs SafeSwitch-regulated generation. You can run the evaluation with: `bash_scripts/eval_pipeline.sh`.
 
 You can also run the following scrpit to interact with Safeswitch:
 ```
-python src/safeswitch_pipeline.py --model Llama-3.1-8B-Instruct \
-    --llm_dir /shared/nas2/shared/llms \
-    --classifier_dir /shared/nas2/ph16/toxic/outputs/classifier \
-    --refusal_head_dir /shared/nas2/ph16/toxic/finetuned_LM_head
+python src/safeswitch_pipeline.py --model [Model] \
+    --llm_dir [dir] \
+    --classifier_dir [dir] \
+    --refusal_head_dir [dir]
 ```
 
 
