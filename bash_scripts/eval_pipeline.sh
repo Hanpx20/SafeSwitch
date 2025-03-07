@@ -9,7 +9,7 @@ gpu_count=$(echo $CUDA_VISIBLE_DEVICES | tr ',' '\n' | wc -l)
 set -e
 
 model_list=(Qwen2.5-7B-Instruct Llama-3.1-8B-Instruct Ministral-8B-Instruct-2410 Yi-1.5-9B-Chat)
-bench_list=("sorry-bench-eval" "trustllm-misuse" "trustllm-jailbreak" "trustllm-exaggerated_safety" "alpaca-eval" "trivia_qa")
+bench_list=("sorry-bench-eval" "trustllm-misuse-eval" "trustllm-jailbreak-eval" "trustllm-exaggerated_safety" "alpaca-eval" "trivia_qa")
 mitigate_method_list=(no prompt_strong head)
 conditional_mitigate_list=("False" "True")
 
