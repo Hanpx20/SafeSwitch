@@ -142,10 +142,8 @@ if __name__ == "__main__":
     dtype=test_dataset[0][0].dtype
     
     hidden_sizes = [(int)(x) for x in args.hidden_sizes]
-    if not hidden_sizes or hidden_sizes[0] != HIDDEN_STATE_DIM:
-        hidden_sizes.insert(0, HIDDEN_STATE_DIM)
-    if hidden_sizes[-1] != CLASSIFIER_DIM:
-        hidden_sizes.append(CLASSIFIER_DIM)
+    hidden_sizes.insert(0, HIDDEN_STATE_DIM)
+    hidden_sizes.append(CLASSIFIER_DIM)
         
     if args.ckpt != "":
         model = load_classifier(args.ckpt, HIDDEN_STATE_DIM, CLASSIFIER_DIM, device=device)
