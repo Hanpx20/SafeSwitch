@@ -36,18 +36,21 @@ for model in "${model_list[@]}"; do
     python -m src.prober.generate_hidden_states \
         --job_name "$model" \
         --question_file datasets/sorry-bench-plus.jsonl \
-        --model_name_or_path "$LLM_DIR/$model" --batch_size 8
+        --model_name_or_path "$LLM_DIR/$model" --batch_size 8 \
+        --base_save_dir $DATA_DIR/states/"$model"
 
     python -m src.prober.generate_hidden_states \
         --job_name "$model" \
         --question_file datasets/sorry-bench-plus.jsonl \
         --model_name_or_path "$LLM_DIR/$model" --batch_size 8 \
-        --do_decoding --answer_file model_answers/"$model"/sorry-bench-plus/base.jsonl
+        --do_decoding --answer_file model_answers/"$model"/sorry-bench-plus/base.jsonl \
+        --base_save_dir $DATA_DIR/states/"$model"
 
     python -m src.prober.generate_judgements \
         --job_name "$model" \
         --judgement_file model_answers/"$model"/sorry-bench-plus/judge/base/judgements.jsonl \
-        --question_file datasets/sorry-bench-plus.jsonl
+        --question_file datasets/sorry-bench-plus.jsonl \
+        --base_save_dir $DATA_DIR/states/"$model"
 
     python -m src.data.split_train_eval $DATA_DIR/states/"$model"
 
@@ -57,7 +60,8 @@ for model in "${model_list[@]}"; do
         python -m src.prober.train_classifier \
             --data_dir $DATA_DIR/states/"$model" \
             --hidden_sizes $hidden_size --layer_id $param \
-            --learning_rate 1e-5 --epochs 20 --llm $model --overwrite
+            --learning_rate 1e-5 --epochs 20 --llm $model --overwrite \
+            --base_dir $DATA_DIR/classifier
     done
 
 
@@ -67,13 +71,15 @@ for model in "${model_list[@]}"; do
             --data_dir $DATA_DIR/states/"$model" \
             --hidden_sizes $hidden_size --layer_id -1 \
             --learning_rate 1e-5 --epochs 20 --llm $model --label safety \
-            --token_rule multi --n_decode $param --overwrite
+            --token_rule multi --n_decode $param --overwrite \
+            --base_dir $DATA_DIR/classifier
 
         python -m src.prober.train_classifier \
             --data_dir $DATA_DIR/states/"$model" \
             --hidden_sizes $hidden_size --layer_id -1 \
             --learning_rate 1e-5 --epochs 20 --llm $model --label response \
-            --token_rule multi --n_decode $param --overwrite
+            --token_rule multi --n_decode $param --overwrite \
+            --base_dir $DATA_DIR/classifier
     done
 
 
