@@ -60,7 +60,11 @@ You can directly use our trained refusal heads from [the model repo](https://hug
 ### Step 3: Evaluating SafeSwitch
 After training the prober and the refusal head, our code automatically performs SafeSwitch-regulated generation. You can run the evaluation with: `bash_scripts/eval_pipeline.sh`.
 
-You can also run the following script to interact with Safeswitch:
+Please note that the benchmark names in this repository differ slightly from those used in the main paper. Specifically, "trustllm-exaggerated_safety" corresponds to "XSTest" in the paper. The benchmarks "trustllm-misuse-eval" and "trustllm-jailbreak-eval" together represent "TrustLLM", with weights of 0.45 and 0.55, respectively, based on the proportion of test data.
+
+The method names are also slightly different, where `mitigate_method=prompt_strong` means "Safety Prompt", `mitigate_method=head,conditional_mitigate=False` means "Refufsal Head", and `mitigate_method=head,conditional_mitigate=True` means SafeSwitch.
+
+**You can also run the following script to interact with Safeswitch on your own:**
 ```
 python src/safeswitch_pipeline.py --model [Model] \
     --llm_dir [dir] \
