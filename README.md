@@ -87,6 +87,6 @@ If you find this repo or the paper useful, please cite:
 }
 ```
 
-Reach out to [Peixuan Han](ph16@illinois.edu) for any questions.
+Reach out to [Peixuan Han](mailto:ph16@illinois.edu) for any questions.
 
 
