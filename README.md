@@ -1,7 +1,7 @@
 <div align="center">
-<h1>
+<h2>
 SafeSwitch: Steering Unsafe LLM Behavior via Internal Activation Signals
-</h1>
+</h2>
 </div>
 
 <div align="center">
