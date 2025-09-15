@@ -1,12 +1,12 @@
 <div align="center">
 <h1>
-SafeSwitch: Internal Activation as the Polar Star for Steering Unsafe LLM Behavior
+SafeSwitch: Steering Unsafe LLM Behavior via Internal Activation Signals
 </h1>
 </div>
 
 <div align="center">
 <h3>
-Peixuan Han, Cheng Qian, Xiusi Chen, Yuji Zhang, Denghui Zhang, Heng Ji
+Peixuan Han, Cheng Qian, Xiusi Chen, Yuji Zhang, Heng Ji, Denghui Zhang
 </h3>
 </div>
 
