@@ -6,7 +6,7 @@ SafeSwitch: Steering Unsafe LLM Behavior via Internal Activation Signals
 
 <div align="center">
 <h3>
-Peixuan Han, Cheng Qian, Xiusi Chen, Yuji Zhang, Heng Ji, Denghui Zhang
+, Cheng Qian, Xiusi Chen, Yuji Zhang, Heng Ji, Denghui Zhang
 </h3>
 </div>
 
